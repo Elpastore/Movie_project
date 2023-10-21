@@ -35,8 +35,6 @@ def use_perference(data_base):
                 print("Movie found: ")
                 print(movie)
                 preference.append(user_pref)
-            elif user_perf not in movie:
-                print("Not found")
 
         choice = input("Enter Y for adding otherwise press N: ")
     
@@ -48,8 +46,21 @@ def user_list(preference):
 data_base = {}
 user_perf = []
 data_base = build_data_base()
+value_search =  input("Enter the right value: genre, year, rate")
+search = input("Enter your preference: ")
+for movie, nested in data_base.items():
+    if value_search in nested:
+        if nested[value_search] == search:
+            #print("Found a match: ", movie)
+            user_perf.append(movie)
+if user_perf:
+    for movie in user_perf:
+        print(movie)
+else:
+    print("No matches found")
 
-while (True):        
+
+"""while (True):        
     print("User interface: \n")
     print("1. Get the database")
     print("2. Get all available movies")
@@ -70,4 +81,4 @@ while (True):
     elif (choice ==  5):
         add_new_movie(data_base)
     elif (choice == 6):
-        user_list(user_perf)
+        user_list(user_perf)"""
