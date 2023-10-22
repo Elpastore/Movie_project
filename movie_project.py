@@ -1,21 +1,14 @@
 # Movie Recommendation System
 #Build data_base
 def build_data_base():
-
-    data_base = {
-        "Wick": {"Genre": "Action", "Year" : 2023, "Rate": 9},
-        "Spiderman": {"Genre": "Action", "Year" : 2019, "Rate": 8.7},
-        "Naruto" : {"Genre": "Anime", "Year" : 2014, "Rate": 10},
-        "300" : {"Genre": "Action", "Year" : 2014, "Rate": 10},
-        "Hacules" : {"Genre": "Action", "Year" : 2014, "Rate": 10},
-        "2000" : {"Genre": "Action", "Year" : 2014, "Rate": 10},
-        "Titanic" : {"Genre": "Romantic", "Year" : 2000, "Rate": 9}
-    }
-
-    """data_base["Wick"] = {"Genre": "Action", "Year" : 2023,"Duration": 120, "Rate": 9}
+    data_base = {}
+    data_base["Hacules"] : {"Genre": "Action", "Year" : 2014, "Rate": 10}
+    data_base["2000"] = {"Genre": "Action", "Year" : 2014, "Rate": 10},
+    data_base["Titanic"] : {"Genre": "Romantic", "Year" : 2000, "Rate": 9}
+    data_base["Wick"] = {"Genre": "Action", "Year" : 2023,"Duration": 120, "Rate": 9}
     data_base["Spiderman"] = {"Genre": "Action", "Year" : 2019,"Duration": 100, "Rate": 8.7}
     data_base["Naruto"] = {"Genre": "Anime", "Year" : 2014, "Duration": 90,"Rate": 10}
-    data_base["3 under"] = {"Genre": "Action", "Year" : 2023, "Rate": 8}"""
+    data_base["300"] = {"Genre": "Action", "Year" : 2023, "Rate": 8}
     return data_base
 # Function that add new movie in the data_base
 def add_new_movie(data_base):
@@ -77,6 +70,7 @@ def user_list(preference):
 # Function that save the data_base
 def save_data_base(data_base, filename, directory):
     import json
+    #C:/Users/User/Movie_project/filename
     with open(directory + filename, "w") as file_object:
         json.dump(data_base,file_object)
     print("Data has been saved to", filename)
@@ -87,15 +81,39 @@ def load_data_base(filename, directory):
         data_base = json.load(file_object)
     print(f"Database loaded from {directory}{filename}")
     return data_base
+# Function for user login
+def user_login(user_data):
+    print("Welcom on our site!")
+    print("Follow instruction to create your account")
+    username = input("Username: ")
+    password = input("Password: ")
+    
+    user_data[username] = password
+    
+    return user_data
+# Function check for user login
+def check_log(user_login):
+    user_log = input("Enter your user name")
+    for name, user_pass in user_login.items():
+        if user_log == name:
+            user_pass = input("Please enter your password")
+            if user_pass == user_login[name]:
+                print("Welcom{}".format(user_log))
+                #load_data_base
+"""1. User name = Abdou
+2. Pass_word = ********
+dict = {"Adbou" : "Alx", "Eric" : "Hard", "Kester": "Easy"}
+dict[key] ==>value
+user_log = Kester"""
 #main program
-import time
 data_base = {}
+user_data = {}
 user_perf = []
-#data_base = build_data_base()
+data_base = build_data_base()
 #movie_suggession(data_base, user_perf)
-#directory = "c:/Users/User/Movie_project/"
-#filename  = "movie_data.json"
-directory = "C:/Users/User/"
+directory = "c:/Users/User/Movie_project/"
+#filename  = "Data.json"
+#directory = "C:/Users/User/"
 filename = "My_data_base.json"
 
 
@@ -109,11 +127,13 @@ while (True):
     print("6. Print the users list")
     print("7. Save the data_base")
     print("8. Load data")
-    print("9. Exit program")
+    print("9. Create an account")
+    print("10. Exit program")
     choice = int(input("Enter your choice: "))
     match choice:
         case 1:
-            build_data_base(data_base)
+            #build_data_base(data_base)
+            print("Not available yet")
         case 2:
             get_available_movie(data_base)
         case 3:
@@ -129,6 +149,10 @@ while (True):
         case 8:
             data_base = load_data_base(filename, directory)
         case 9:
+            user_data = user_login(user_data)
+            for i in user_data.keys():
+                print(i)
+        case 10:
             break
         case _:
             print("Invalid option")
