@@ -1,11 +1,21 @@
 # Movie Recommendation System
 #Build data_base
-def build_data_base(data_base):
+def build_data_base():
 
-    data_base["Wick"] = {"Genre": "Action", "Year" : 2023,"Duration": 120, "Rate": 9}
+    data_base = {
+        "Wick": {"Genre": "Action", "Year" : 2023, "Rate": 9},
+        "Spiderman": {"Genre": "Action", "Year" : 2019, "Rate": 8.7},
+        "Naruto" : {"Genre": "Anime", "Year" : 2014, "Rate": 10},
+        "300" : {"Genre": "Action", "Year" : 2014, "Rate": 10},
+        "Hacules" : {"Genre": "Action", "Year" : 2014, "Rate": 10},
+        "2000" : {"Genre": "Action", "Year" : 2014, "Rate": 10},
+        "Titanic" : {"Genre": "Romantic", "Year" : 2000, "Rate": 9}
+    }
+
+    """data_base["Wick"] = {"Genre": "Action", "Year" : 2023,"Duration": 120, "Rate": 9}
     data_base["Spiderman"] = {"Genre": "Action", "Year" : 2019,"Duration": 100, "Rate": 8.7}
     data_base["Naruto"] = {"Genre": "Anime", "Year" : 2014, "Duration": 90,"Rate": 10}
-    data_base["3 under"] = {"Genre": "Action", "Year" : 2023, "Rate": 8}
+    data_base["3 under"] = {"Genre": "Action", "Year" : 2023, "Rate": 8}"""
     return data_base
 # Function that add new movie in the data_base
 def add_new_movie(data_base):
