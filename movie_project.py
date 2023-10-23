@@ -43,8 +43,9 @@ def use_perference(data_base):
                 print("Movie found: ")
                 print(movie)
                 preference.append(user_pref)
-
+                
         choice = input("Enter Y for adding otherwise press N: ")
+            
     
     return preference
 #Function to give give movies sugesssion
@@ -99,7 +100,9 @@ def check_log(user_login):
             user_pass = input("Please enter your password")
             if user_pass == user_login[name]:
                 print("Welcom{}".format(user_log))
-                #load_data_base
+                #Kester
+                #load_data_base : check if the data empty
+                #Add i new movie in the list
 """1. User name = Abdou
 2. Pass_word = ********
 dict = {"Adbou" : "Alx", "Eric" : "Hard", "Kester": "Easy"}
@@ -109,13 +112,15 @@ user_log = Kester"""
 data_base = {}
 user_data = {}
 user_perf = []
-data_base = build_data_base()
+#data_base = build_data_base()
 #movie_suggession(data_base, user_perf)
 directory = "c:/Users/User/Movie_project/"
 #filename  = "Data.json"
 #directory = "C:/Users/User/"
 filename = "My_data_base.json"
 
+
+# Condition in which user can get acces to the program and all available datar(Eric).
 
 while (True):        
     print("User interface: \n")

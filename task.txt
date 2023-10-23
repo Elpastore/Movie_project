@@ -1,0 +1,18 @@
+Kester task: Complete the function check log and load the list of movie for the user if not empty
+            If it is empty  ask to create his list.
+Eri task : Add a new functionnaly to the program to get access on on the program and all available data
+            You should implemente a function for admiministrator( with all access add and delete movie)
+            and for user
+            If the user is not register print a message that "You can not access to the data_base"
+            and the unique option to create an account
+            You role is to code somtething that allow to connect as admiministrator or users
+Abas task : Add the movie status option (Watched and not Watched yet). 
+            In this task  are going first to print the list of movie
+            Then list the movie with status Watched and Not Watched
+John task: You are going to manage each  user data movie.
+            Add a new functionnaly that allow the user to save his list in a file
+            Each user should have his own list of movie
+Unknow task: implemente a function that allow the admiministrator to add and delete users.
+
+NOTE! You can change the assignement if you have more precise or Complete task. I am just trying so you are welcome 
+    to give your opinion.
