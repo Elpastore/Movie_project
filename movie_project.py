@@ -94,12 +94,13 @@ def user_login(user_data):
     return user_data
 # Function check for user login
 def check_log(user_login):
-    user_log = input("Enter your user name")
+    user_name = input("Enter your user name")
     for name, user_pass in user_login.items():
-        if user_log == name:
+        if user_name == name:
             user_pass = input("Please enter your password")
             if user_pass == user_login[name]:
                 print("Welcom{}".format(user_log))
+                return True
                 #Kester
                 #load_data_base : check if the data empty
                 #Add i new movie in the list
@@ -120,8 +121,11 @@ directory = "c:/Users/User/Movie_project/"
 filename = "My_data_base.json"
 
 
-# Condition in which user can get acces to the program and all available datar(Eric).
+# Condition in which user can get acces to the program and all available data  (Eric).
 
+if not check_log:
+    print("Failed to Authenticate User")
+# print("Press 1 to Sign Up")
 while (True):        
     print("User interface: \n")
     print("1. Get the database")
