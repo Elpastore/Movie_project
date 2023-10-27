@@ -75,13 +75,32 @@ def save_data_base(data_base, filename, directory):
     with open(directory + filename, "w") as file_object:
         json.dump(data_base,file_object)
     print("Data has been saved to", filename)
-# Function that load a database
+# Function that load a database - Edited by JOHN
 def load_data_base(filename, directory):
     import json
+    if filename is None:
+        filename = "My_data_base.json"
+    if directory is None:
+        directory = "./"  # Default to the current directory
+
     with open(directory + filename, "r") as file_object:
         data_base = json.load(file_object)
     print(f"Database loaded from {directory}{filename}")
     return data_base
+# Function to save user movie list -JOHN'S TASK DONE
+def save_user_movie_list(username, user_perf, filename=None, directory=None):
+    import json
+    if filename is None:
+        filename = f"{username}'s_movie_list.json"
+    if directory is None:
+        directory = "./"  # Default to the current directory
+
+    user_data = {}
+    user_data[username] = user_perf
+    with open(directory + filename, "w") as file_object:
+        json.dump(user_data, file_object)
+    print(f"User movie list for {username} has been saved to {filename}")
+
 # Function for user login
 def user_login(user_data):
     print("Welcom on our site!")
@@ -115,10 +134,10 @@ user_data = {}
 user_perf = []
 #data_base = build_data_base()
 #movie_suggession(data_base, user_perf)
-directory = "c:/Users/User/Movie_project/"
-#filename  = "Data.json"
+directory = "./"
+filename  = None
 #directory = "C:/Users/User/"
-filename = "My_data_base.json"
+#filename = "My_data_base.json"
 
 
 # Condition in which user can get acces to the program and all available data  (Eric).
@@ -137,7 +156,8 @@ while (True):
     print("7. Save the data_base")
     print("8. Load data")
     print("9. Create an account")
-    print("10. Exit program")
+    print("10. Save user movie list")
+    print("11. Exit program")
     choice = int(input("Enter your choice: "))
     match choice:
         case 1:
@@ -162,28 +182,9 @@ while (True):
             for i in user_data.keys():
                 print(i)
         case 10:
+            username = input("Enter your username: ")
+            save_user_movie_list(username, user_perf, filename, directory)
+        case 11:
             break
         case _:
             print("Invalid option")
-""" if (choice == 9):
-        break
-    elif (choice == 2):
-        if not data_base:
-            print("Empty database")
-        else:
-            for key, value in data_base.items():
-                print(key)
-                print(value)
-    elif (choice == 3):
-        user_perf = use_perference(data_base)
-    elif (choice ==  5):
-        add_new_movie(data_base)
-    elif (choice == 6):
-        user_list(user_perf)
-    elif (choice == 7):
-        save_data_base(data_base, filename, directory)
-    elif (choice == 8):
-        import json
-        with open(directory + filename, "r") as file_object:
-            data_base = json.load(file_object)
-        print(f"Database loaded from {directory}{filename}")"""
