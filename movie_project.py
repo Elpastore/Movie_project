@@ -99,7 +99,7 @@ def check_log(user_login):
         if user_name == name:
             user_pass = input("Please enter your password")
             if user_pass == user_login[name]:
-                print("Welcom{}".format(user_log))
+                print("Welcome {}".format(user_log))
                 return True
                 #Kester
                 #load_data_base : check if the data empty
@@ -123,9 +123,9 @@ filename = "My_data_base.json"
 
 # Condition in which user can get acces to the program and all available data  (Eric).
 
-if not check_log:
+if not check_log():
     print("Failed to Authenticate User")
-# print("Press 1 to Sign Up")
+    # print("Press 1 to Sign Up")
 while (True):        
     print("User interface: \n")
     print("1. Get the database")
